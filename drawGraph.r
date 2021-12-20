@@ -11,8 +11,8 @@ tagNames = c("django", "flask", "jinja2", "jupyternotebook", "numpy", "pandas", 
 types = c("year", "month")
 
 #타입 선택
-type="month"
-tagName = "python"
+type="year"
+tagName = "tensorflow"
 
 if(!tagName %in% tagNames){
     #콘솔 정리
