@@ -3,6 +3,7 @@ library('reticulate')
 
 #consoleClear 함수 정의
 consoleClear <- function(){
+    #python 실행 코드드
     reticulate::py_run_file('consoleClear.py')
 }
 
