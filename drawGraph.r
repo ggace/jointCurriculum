@@ -7,6 +7,12 @@ consoleClear <- function(){
     reticulate::py_run_file('scripts/consoleClear.py')
 }
 
+showError <- function(msg, vectors){
+    cat(msg)
+    print(vectors)
+    cat("이들 중 선택해주세요\n")
+}
+
 # 존재하는 선택지 정의
 tagNames = c("django", "flask", "jinja2", "jupyternotebook", "numpy", "pandas", "pip", "pygame", "pyinstaller", "pyqt", "pyserial", "python", "pytorch", "selenium", "sympy", "tensorflow")
 types = c("year", "month")
@@ -19,17 +25,13 @@ if(!tagName %in% tagNames){
     #콘솔 정리
     consoleClear()
     #print
-    cat(sprintf("%s는 존재하지 않는 태그이거나 csv파일로 변경하지 않은 파일입니다.\n", tagName))
-    print(tagNames)
-    cat("이들 중 선택해주세요\n")
+    showError(sprintf("%s는 존재하지 않는 태그이거나 csv파일로 변경하지 않은 파일입니다.\n", tagName), tagNames)
     
 } else if( !type %in% types){
     #콘솔 정리
     consoleClear()
     #print
-    cat(sprintf("%s은 존재하지 않는 타입입니다.\n", type))
-    print(types)
-    cat("이들 중 선택해주세요\n")
+    showError(sprintf("%s은 존재하지 않는 타입입니다.\n", type), types)
     
 } else{
     #csv가져오기
